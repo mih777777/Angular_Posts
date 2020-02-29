@@ -10,7 +10,7 @@ import { PostServiceService, Post } from 'src/app/services/post-service.service'
 })
 export class PostComponent implements OnInit {
 
-  post: Post
+  post: any = {}
 
   constructor(
     private route: ActivatedRoute,

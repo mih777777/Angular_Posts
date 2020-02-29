@@ -17,6 +17,8 @@ export interface Post {
 })
 export class PostServiceService {
 
+  post: Post
+
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Post[]>{
