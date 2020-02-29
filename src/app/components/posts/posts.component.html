@@ -1,0 +1,7 @@
+<h1>Страница всех постов</h1>
+
+<div *ngFor="let post of posts">
+    <ul>
+        <li>{{ post.title }}<a [routerLink]="['/posts', post._id]">details...</a></li>
+    </ul>
+</div>
