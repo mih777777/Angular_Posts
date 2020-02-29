@@ -2,6 +2,6 @@
 
 <div *ngFor="let post of posts">
     <ul>
-        <li>{{ post.title }}<a [routerLink]="['/posts', post._id]">details...</a></li>
+        <li>{{ post.title }}<a [routerLink]="['/main/posts', post._id]">details...</a></li>
     </ul>
 </div>

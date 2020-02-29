@@ -8,7 +8,9 @@ import { PostComponent } from './components/post/post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component'
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
     PostsComponent,
     PostComponent,
     MainLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

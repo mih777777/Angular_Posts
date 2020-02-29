@@ -1,0 +1,18 @@
+<h4>Страница регистрация</h4>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input 
+        type="text"
+        formControlName="email"
+    >
+
+    <input
+        type="password"
+        formControlName="password"
+    >
+
+    <button 
+        class="btn" 
+        type="submit"
+    >Зарегистрироваться</button>
+</form>
