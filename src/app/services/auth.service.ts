@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators'
 
 export interface User {
   email: string
@@ -12,30 +13,41 @@ export interface User {
 })
 export class AuthService {
 
+  private token: string = null
+
   constructor(private http: HttpClient) { }
 
-  register(user: User): Observable<User>{
-    return this.http.post<User>(`http://localhost:3000/api/auth/register`, user)
+  
+  login(user: User): Observable<{token: string}>{
+    return this.http.post<{token: string}>(`http://localhost:3000/api/auth/login`, user)
+      .pipe(tap(
+        ({token}) => {
+          localStorage.setItem('auth-token', token)
+          this.setToken(token)
+        }
+      ))
   }
 
-  login() {
-
+  isAuthenticate(): boolean {
+    return !!this.token
   }
 
-  isAuthenticate() {
-
+  setToken(token: string) {
+    this.token = token
   }
 
-  setToken() {
-
-  }
-
-  getToken() {
-
+  getToken(): string{
+    return this.token
   }
 
   logOut() {
+    this.setToken(null)
+    localStorage.clear()
+  }
 
+
+  register(user: User): Observable<User>{
+    return this.http.post<User>(`http://localhost:3000/api/auth/register`, user)
   }
 
 }
