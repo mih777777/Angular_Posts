@@ -6,17 +6,18 @@ import { PostComponent } from './components/post/post.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
   { 
-    path: 'main', component: MainLayoutComponent, children: [
+    path: 'main', component: MainLayoutComponent, canActivate: [AuthGuardService], children: [
       { path: 'posts', component: PostsComponent },
       { path: 'posts/:id', component: PostComponent }
     ] 
   },
   {
-    path: '', component: AuthLayoutComponent, children: [
+    path: '', component: AuthLayoutComponent,  children: [
       { path: 'register', component: RegisterComponent},
       { path: 'login', component: LoginComponent }
     ]
